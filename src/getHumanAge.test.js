@@ -47,4 +47,36 @@ describe('getHumanAge', () => {
     expect(getHumanAge (100, 100))
       .toEqual([21, 17]);
   });
+
+  test('should return an array', () => {
+    expect(getHumanAge(0, 0))
+      .toBeInstanceOf(Array);
+  });
+
+  test('should return an array length of 2 elements', () => {
+    const goals = getHumanAge(2);
+
+    expect(goals.length)
+      .toBe(2);
+  });
+
+  test('if animals age is empty, should be NaN, NaN', () => {
+    expect(getHumanAge ())
+    .toEqual([NaN, NaN]);
+  });
+
+  test('if animals age is undefined, should be NaN, NaN', () => {
+    expect(getHumanAge (undefined))
+    .toEqual([NaN, NaN]);
+  });
+
+  test('if you enter only one value, should be 0, NaN', () => {
+    expect(getHumanAge (0))
+      .toEqual([0, NaN]);
+  });
+
+  test('if animals age is a negative numbers, should be 0, 0', () => {
+    expect(getHumanAge (-1, -1))
+      .toEqual([0, 0]);
+  });
 });
